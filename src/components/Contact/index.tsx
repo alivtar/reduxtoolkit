@@ -1,5 +1,9 @@
+import { useSelector } from "react-redux";
+
 function Contact() {
-  return <div>This is the Contact page</div>;
+  const username = useSelector((state: any) => state.usersData.user.username);
+
+  return <div>This is the Contact page {username}</div>;
 }
 
 export default Contact;
