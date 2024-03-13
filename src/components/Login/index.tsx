@@ -1,9 +1,9 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogin, userLogout } from "../../redux/slices/Users";
 
 function Login() {
-  const [newUsername, setNewUsername] = useState("");
+  const [newUsername, setNewUsername] = useState<string>("");
 
   const dispatch = useDispatch();
   const username = useSelector((state: any) => state.usersData.user.username);
@@ -14,7 +14,9 @@ function Login() {
       {!!username && <h2>Hi {username}</h2>}
       <input
         value={newUsername}
-        onChange={(e) => setNewUsername(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setNewUsername(e.target.value)
+        }
       />
       <button
         onClick={() => {
